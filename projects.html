@@ -26,7 +26,7 @@
     
         window.onclick = function(event) {
         var modal = document.getElementsByClassName('modal');
-        for (var i = 0; i < modals.length; i++) {
+        for (var i = 0; i < modal.length; i++) {
             if (event.target == modals[i]) {
                 closeModal(modals[i].id);
             }
@@ -43,9 +43,9 @@
                 <div class="col-sm-6 col-lg-4 item" onclick="openModal('cept-modal')"><img class="img-fluid" width="250px" height="150px" style="padding-top:12%;padding-bottom: 12%;" src="assets/img/logo-crdf.png">
                     <h3 class="name" style="font-size: 20px;">City Bus and BRT&nbsp;Service Level Benchmarking</h3>
                     <p class="text-center description">Client: Surat Sitilink and Centre of Excellence in Urban Transport, CEPT University<br>Year: 2017<br></p>
-                    <p class="description" style="margin: 0px;">Tasks:</p>
+                    
                 </div>
-                <div class="col-sm-6 col-lg-4 item"><img class="img-fluid" width="150px" height="150px" src="assets/img/volvo-buses.jpg">
+                <div class="col-sm-6 col-lg-4 item"onclick="openModal('volvo-modal')"><img class="img-fluid" width="150px" height="150px" src="assets/img/volvo-buses.jpg">
                     <h3 class="name" style="font-size: 20px;">Client and user perception of Intra-city Transport Assessment</h3>
                     <p class="description">Client: Volvo Buses India Private Limited<br>Year: 2018</p>
                     <p class="description" style="margin: 0px;">Tasks:</p>
@@ -54,7 +54,7 @@
                     <h3 class="name" style="font-size: 20px;">Electric Bus Operations and Management</h3>
                     <p class="description">Client: Silvassa Smart City Limited<br>Year: 2020-21</p>
                 </div>
-                <div class="col-sm-6 col-lg-4 item"><img class="img-fluid" src="assets/img/minibus.jpeg">
+                <div class="col-sm-6 col-lg-4 item"><img class="img-fluid" width="250px" height="150px" src="assets/img/lntiel.jpeg">
                     <h3 class="name" style="font-size: 20px;">Urban Road Improvement Plan - Himachal Pradesh</h3>
                     <p class="description">Client: L&amp;T Infrastructure Engineering Limited and HP Public Works Department - HPRIDC<br>Year: 2021-22</p>
                 </div>
@@ -62,19 +62,46 @@
                     <h3 class="name" style="font-size: 20px;">Urban</h3>
                     <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p>
                 </div>
-                <div class="col-sm-6 col-lg-4 item"><img class="img-fluid" src="assets/img/minibus.jpeg">
-                    <h3 class="name" style="font-size: 20px;">Project Name</h3>
-                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p>
-                </div>
             </div>
 
             <!-- MODAL and their contents are placed here -->
-            <div id="cept-modal" class="modal" onclick="closeModal('cept-modal')">
-                <div class="modal-content">
-                <span class="close-btn" onclick="closeModal('cept-modal')">&times;</span>
-                <!-- Add your modal content here -->
-                <h3></h3>
-                <p>Modal Content Goes Here</p>
+            <div id="cept-modal" class="modal"  onclick="closeModal('cept-modal')">
+                <div class="modal-content" style="width:50%">
+                    <span class="close-btn" style="align-items: right;" onclick="closeModal('cept-modal')">&times;</span>
+                    <p>Organisation: <strong>Centre of Excellence in Urban Transport - CEPT CRDF</strong></p>
+                    <p>Year: <strong>2017</strong></p>
+                    <p>Position: <strong>Intern</strong></p>
+                    <p>Project/Task Details:</p>
+                    <ul>
+                        <li>&nbsp; Interned with the Centre of Excellence in Urban Transport in 2017</li>
+                        <li>Played a key role in monitoring Citybus operations and route assessment</li>
+                        <li>Oversaw trip and schedule adherence during the internship</li>
+                        <li>Conducted primary surveys for city bus benchmarking</li>
+                        <li>Addressed operational concerns, including uniform checks and bus maintenance issues</li>
+                        <li>Centre of Excellence in Urban Transport serves as the Research Wing of CEPT University, Ahmedabad</li>
+                        <li>Provided crucial technical support to the Surat Municipal Corporation</li>
+                        <li>Experience in 2017 significantly contributed to professional growth in the field of urban transport</li>
+                    </ul>
+                    <p>Point of Contact:<strong>Prof. Shalini Sinha</strong></p>
+                </div>
+            </div>
+            <div id="volvo-modal" class="modal"  onclick="closeModal('volvo-modal')">
+                <div class="modal-content" style="width:50%">
+                    <span class="close-btn" style="align-items: right;" onclick="closeModal('volvo-modal')">&times;</span>
+                    <p>Organisation: <strong>Volvo Buses India Pvt. Ltd.</strong></p>
+                    <p>Year: <strong>2018</strong></p>
+                    <p>Position: <strong>Research Intern Intern</strong></p>
+                    <p>Project/Task Details:</p>
+                    <ul>
+                        <li>&nbsp; Interned with the Centre of Excellence in Urban Transport in 2017</li>
+                        <li>Played a key role in monitoring Citybus operations and route assessment</li>
+                        <li>Oversaw trip and schedule adherence during the internship</li>
+                        <li>Conducted primary surveys for city bus benchmarking</li>
+                        <li>Addressed operational concerns, including uniform checks and bus maintenance issues</li>
+                        <li>Centre of Excellence in Urban Transport serves as the Research Wing of CEPT University, Ahmedabad</li>
+                        <li>Provided crucial technical support to the Surat Municipal Corporation</li>
+                        <li>Experience in 2017 significantly contributed to professional growth in the field of urban transport</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -83,9 +110,9 @@
         <div class="container"><a class="navbar-brand" href="#page-top">Abhas Dudeja</a><button data-bs-toggle="collapse" data-bs-target="#navbarResponsive" class="navbar-toggler text-white bg-primary navbar-toggler-right text-uppercase rounded" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link active py-3 px-0 px-lg-3 rounded" href="index.html#about">About</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="index.html#about">About</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link active py-3 px-0 px-lg-3 rounded" href="#">Projects</a></li>
-                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link active py-3 px-0 px-lg-3 rounded" href="#footer">Contact ME</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#footer">Contact Me</a></li>
                 </ul>
             </div>
         </div>
