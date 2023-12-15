@@ -15,6 +15,24 @@
 </head>
 
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="72">
+    <script>
+        function openModal(modalid) {
+        document.getElementById(modalid).style.display = 'flex';
+        }
+    
+        function closeModal(modalid) {
+        document.getElementById(modalid).style.display = 'none';
+        }
+    
+        window.onclick = function(event) {
+        var modal = document.getElementsByClassName('modal');
+        for (var i = 0; i < modals.length; i++) {
+            if (event.target == modals[i]) {
+                closeModal(modals[i].id);
+            }
+        };
+        }
+    </script>
     <section class="projects-clean">
         <div class="container">
             <div class="intro">
@@ -32,7 +50,7 @@
                     <p class="description">Client: Volvo Buses India Private Limited<br>Year: 2018</p>
                     <p class="description" style="margin: 0px;">Tasks:</p>
                 </div>
-                <div class="col-sm-6 col-lg-4 item" onclick=""><img class="img-fluid" src="assets/img/sscl.jpg">
+                <div class="col-sm-6 col-lg-4 item" onclick="openModal('cept-modal')"><img class="img-fluid" src="assets/img/sscl.jpg">
                     <h3 class="name" style="font-size: 20px;">Electric Bus Operations and Management</h3>
                     <p class="description">Client: Silvassa Smart City Limited<br>Year: 2020-21</p>
                 </div>
