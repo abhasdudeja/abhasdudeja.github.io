@@ -15,7 +15,7 @@
 </head>
 
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="72">
-    <script>
+    <script type="text/javascript">
         function openModal(modalid) {
         document.getElementById(modalid).style.display = 'flex';
         }
@@ -40,7 +40,7 @@
                 <p class="text-center">Here is a glimpse of projects I have been a part of.</p>
             </div>
             <div class="row projects">
-                <div class="col-sm-6 col-lg-4 item"><img class="img-fluid" width="250px" height="150px" style="padding-top:12%;padding-bottom: 12%;" src="assets/img/logo-crdf.png">
+                <div class="col-sm-6 col-lg-4 item" onclick="openModal('cept-modal')"><img class="img-fluid" width="250px" height="150px" style="padding-top:12%;padding-bottom: 12%;" src="assets/img/logo-crdf.png">
                     <h3 class="name" style="font-size: 20px;">City Bus and BRT&nbsp;Service Level Benchmarking</h3>
                     <p class="text-center description">Client: Surat Sitilink and Centre of Excellence in Urban Transport, CEPT University<br>Year: 2017<br></p>
                     <p class="description" style="margin: 0px;">Tasks:</p>
@@ -50,7 +50,7 @@
                     <p class="description">Client: Volvo Buses India Private Limited<br>Year: 2018</p>
                     <p class="description" style="margin: 0px;">Tasks:</p>
                 </div>
-                <div class="col-sm-6 col-lg-4 item" onclick="openModal('cept-modal')"><img class="img-fluid" src="assets/img/sscl.jpg">
+                <div class="col-sm-6 col-lg-4 item"><img class="img-fluid" width="150px" height="150px" src="assets/img/sscl.jpg">
                     <h3 class="name" style="font-size: 20px;">Electric Bus Operations and Management</h3>
                     <p class="description">Client: Silvassa Smart City Limited<br>Year: 2020-21</p>
                 </div>
@@ -69,10 +69,11 @@
             </div>
 
             <!-- MODAL and their contents are placed here -->
-            <div id="cept-modal" class="modal" onclick="closeModal()">
+            <div id="cept-modal" class="modal" onclick="closeModal('cept-modal')">
                 <div class="modal-content">
-                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <span class="close-btn" onclick="closeModal('cept-modal')">&times;</span>
                 <!-- Add your modal content here -->
+                <h3></h3>
                 <p>Modal Content Goes Here</p>
                 </div>
             </div>
