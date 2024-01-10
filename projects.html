@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="assets/css/Projects-Clean.css">
     
-    <script src="https://code.jquery.com/jquery-3.7.1.js"integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/freelancer.js"></script>
@@ -49,32 +49,34 @@
                 <p class="text-center">Here is a glimpse of organisations that I have been a part of.</p>
             </div>
             <div class="row projects">
-                <div class="col-sm-6 col-lg-4 item" onclick="openModal('cept-modal')"><img class="img-fluid" width="250px" height="150px" style="padding-top:12%;padding-bottom: 12%;" src="assets/img/logo-crdf.png">
+                <div class="col-sm-6 col-lg-4 item" onclick="openModal('cept-modal')"><img alt="cept-crdf-logo" class="img-fluid" width="250px" height="150px" style="padding-top:15%;padding-bottom: 15%;" src="assets/img/logo-crdf.png">
                     <h3 class="name" style="font-size: 20px;">City Bus and BRT Service Level Benchmarking</h3>
                     <p class="text-center description">Surat Sitilink and Centre of Excellence in Urban Transport, CEPT University</p>
                 </div>
-                <div class="col-sm-6 col-lg-4 item" onclick="openModal('volvo-modal')"><img class="img-fluid" width="150px" height="150px" src="assets/img/volvo-buses.jpg">
+                <div class="col-sm-6 col-lg-4 item" onclick="openModal('volvo-modal')"><img alt="volvo-buses-logo" class="img-fluid" width="150px" height="150px" src="assets/img/volvo-buses.jpg">
                     <h3 class="name" style="font-size: 20px;">Research Studies in Inter-city Transport</h3>
                     <p class="text-center description">Volvo Buses India Pvt. Ltd.</p>
                 </div>
-                <div class="col-sm-6 col-lg-4 item"  onclick="openModal('sscl-modal')"><img class="img-fluid" width="150px" height="150px" src="assets/img/sscl.jpg">
+                <div class="col-sm-6 col-lg-4 item"  onclick="openModal('sscl-modal')"><img alt="sscl-logo" class="img-fluid" width="150px" height="150px" src="assets/img/sscl.jpg">
                     <h3 class="name" style="font-size: 20px;">Electric Bus Operations and Management</h3>
                     <p class="description">Silvassa Smart City Limited</p>
                 </div>
-                <div class="col-sm-6 col-lg-4 item"  onclick="openModal('lntiel-modal')"><img class="img-fluid" width="250px" height="150px" style="padding-top:5%;padding-bottom: 5%;" src="assets/img/lntiel.png">
-                    <h3 class="name" style="font-size: 20px;">Urban Road Improvement Plan - Himachal Pradesh</h3>
-                    <p class="description">Client: L&amp;T Infrastructure Engineering Limited and HP Public Works Department - HPRIDC<br>Year: 2021-22</p>
+                <div class="col-sm-6 col-lg-4 item"  onclick="openModal('lntiel-modal')"><img alt="lntiel-logo" class="img-fluid" width="250px" height="150px" style="padding-top:8%;padding-bottom: 8%;" src="assets/img/lntiel.png">
+                    <h3 class="name" style="font-size: 20px;">Multiple Assignments and Tasks</h3>
+                    <p class="description">L&amp;T Infrastructure Engineering Limited (now </p>
                 </div>
-                <div class="col-sm-6 col-lg-4 item"  onclick="openModal('mgl-modal')"><img class="img-fluid" width="150px" height="150px" src="assets/img/MGL_Logo.png">
-                    <h3 class="name" style="font-size: 20px;">Diesel to Electric Transition Planning and Deployment</h3>
-                    <p class="description">Microgrid Labs USA and Microgrid Labs India</p>
+                <div class="col-sm-6 col-lg-4 item"  onclick="openModal('mgl-modal')"><img alt="mgl-logo" class="img-fluid" width="150px" height="150px" src="assets/img/MGL_Logo.png">
+                    <h3 class="name" style="font-size: 20px;">Multiple Assignments and Tasks</h3>
+                  <p class="description">Microgrid Labs USA &amp; India <br>Year: 2022 to Present</p>
+                  
                 </div>
             </div>
             <!-- MODAL and their contents are placed here -->
             <!-- CEPT MODAL -->
             <div id="cept-modal" class="modal"  onclick="closeModal('cept-modal')">
                 <div class="modal-content" style="width:50%">
-                    <span class="close-btn" style="align-items: right;" onclick="closeModal('cept-modal')">&times;</span>
+<!--                    <span class="close-btn" style="align-items: right;" onclick="closeModal('cept-modal')">&times;</span>-->
+					<button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
                     <p>Organisation: <strong>Center of Excellence in Urban Transport - CEPT CRDF, Ahmedabad</strong></p>
                     <p>Year: <strong>2017</strong></p>
                     <p>Position: <strong>Intern</strong></p>
@@ -161,20 +163,45 @@
             <div class="row">
                 <div class="col-md-4 mb-5 mb-lg-0">
                     <h4 class="text-uppercase mb-4">Location</h4>
+					<div class="embed-responsive col-12">
+					  <iframe class="embed-responsive-item" src="https://www.openstreetmap.org/export/embed.html?bbox=77.53189086914062%2C12.948687079902895%2C77.6122283935547%2C13.002885153354846&amp;layer=mapnik&amp;marker=12.975787696523449%2C77.57205963134766" style="border: 1px solid black;"><a href="https://www.openstreetmap.org/?mlat=12.9758&amp;mlon=77.5721#map=14/12.9758/77.5721"></a></iframe>
+					</div>
                     <p>Bangalore, India</p>
                 </div>
                 <div class="col-md-4 mb-5 mb-lg-0">
-                    <h4 class="text-uppercase">Around the Web</h4>
-                    <ul class="list-inline">
-                        <li class="list-inline-item"><a class="btn btn-outline-light text-center btn-social rounded-circle" role="button" href="https://www.facebook.com/mr.dudeja" target="_blank"><i class="fa fa-facebook fa-fw"></i></a></li>
-                        <li class="list-inline-item"><a class="btn btn-outline-light text-center btn-social rounded-circle" role="button" href="https://twitter.com/dudeja_abhas" target="_blank"><i class="fa fa-twitter fa-fw"></i></a></li>
-                        <li class="list-inline-item"><a class="btn btn-outline-light text-center btn-social rounded-circle" role="button" href="https://www.instagram.com/mr.dudeja/" target="_blank"><i class="fa fa-instagram fa-fw"></i></a></li>
-                        <li class="list-inline-item"><a class="btn btn-outline-light text-center btn-social rounded-circle" role="button" href="mailto:abhasdudeja.planner@gmail.com" target="_blank"><i class="fa fa-envelope fa-fw"></i></a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h4 class="text-uppercase mb-4">Contact ME</h4>
-                    <p class="lead mb-0"><span>Please feel free to connect with me using any of the given methods.</span></p>
+					<h4 class="text-uppercase mb-4 aweb" style="padding-bottom: ">Around the Web</h4>
+					<div class="row justify-content-center">
+						<div class="col-3"></div>
+						<div class="col-3 mb-3">
+							<a class="btn btn-outline-light btn-social rounded-circle d-flex justify-content-center align-items-center" role="button" href="https://www.facebook.com/mr.dudeja" target="_blank">
+								<i class="fa fa-facebook fa-fw"></i>
+							</a>
+						</div>
+						<div class="col-3 mb-3">
+							<a class="btn btn-outline-light btn-social rounded-circle d-flex justify-content-center align-items-center" role="button" href="https://twitter.com/dudeja_abhas" target="_blank">
+								<i class="fa fa-twitter fa-fw"></i>
+							</a>
+						</div>
+						<div class="col-3"></div>
+					</div>
+					<div class="row justify-content-center">
+						<div class="col-3"></div>
+						<div class="col-3 mb-3">
+							<a class="btn btn-outline-light btn-social rounded-circle d-flex justify-content-center align-items-center" role="button" href="https://www.instagram.com/mr.dudeja/" target="_blank">
+								<i class="fa fa-instagram fa-fw"></i>
+							</a>
+						</div>
+						<div class="col-6 mb-3">
+							<a class="btn btn-outline-light btn-social rounded-circle d-flex justify-content-center align-items-center" role="button" href="mailto:abhasdudeja.planner@gmail.com" target="_blank">
+								<i class="fa fa-envelope fa-fw"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+
+                <div class="col-md-4 mb-5 mb-lg-0">
+                    <h4 class="text-uppercase mb-4" style="">Contact ME</h4>
+                    <p class="lead"><span>Please feel free to connect with me using any of the given methods.</span></p>
                 </div>
             </div>
         </div>

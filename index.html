@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
     <link rel="stylesheet" href="assets/css/Projects-Clean.css">
     
-    <script src="https://code.jquery.com/jquery-3.7.1.js"integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/freelancer.js"></script>
@@ -21,7 +21,7 @@
 
 <body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="72">
     <header class="text-center text-white bg-primary masthead">
-        <div class="container"><img class="rounded-circle img-fluid d-block mx-auto" src="assets/img/profile-image.jpg" style="max-width: 20%!important;">
+        <div class="container"><img class="rounded-circle img-fluid d-block mx-auto" alt="profile-picture" src="assets/img/profile-image.jpg" style="max-width: 20%!important;">
             <h1>Abhas Dudeja</h1>
             <hr class="star-light">
             <h2 class="font-weight-light mb-0">Data Analyst - Urban and Transport Planner - GIS Enthusiast&nbsp;&nbsp;</h2>
@@ -34,7 +34,7 @@
             <div class="row">
                 <div class="col-lg-12 col-xl-12 col-xxl-12 offset-xl-0 text-center ms-auto col-auto">
                     <p class="lead">Abhas is an <strong>Urban and Transport Planner</strong>, based out of Bangalore. He is currently working full-time at a US based Startup called Microgrid Labs as a Transport Planner and Analyst.</p>
-                    <p class="lead text-center">A keen advocate of <strong>public transport</strong> and<strong> sustainable &amp; accessible urban mobility</strong>, Abhas blends his expertise in public transport operations with perceptive analytical<br>skills to bring innovative technologies and strategies.<br></p>
+                    <p class="lead text-center">A keen advocate of <strong>public transport</strong> and<strong> sustainable &amp; accessible urban mobility</strong>, Abhas blends his expertise in public transport operations with perceptive analytical skills to bring innovative technologies and strategies.</p>
                 </div>
             </div>
         </div>
@@ -54,7 +54,9 @@
                 <div class="col-md-4 text-center"><i class="fas fa-bus-alt rounded-0 me-2" style="font-size: 75px;text-align: center;"></i>
                     <h6 class="text-center" style="margin-top: 15px;">Public Transport Systems</h6>
                 </div>
-                <div class="col-md-4 text-center"><i class="fas fa-truck-pickup rounded-0 me-2" style="font-size: 75px;text-align: center;"></i>
+				
+                <div class="col-md-4 text-center">
+					<img src="assets/img/car-bolt.svg" width="75px" height="75px" alt="ev-icon">
                     <h6 class="text-center" style="margin-top: 15px;">Electric Vehicles</h6>
                 </div>
             </div>
@@ -77,22 +79,22 @@
     <footer class="text-center footer" id="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-4 mb-5 mb-lg-0" >
-                    <h4 class="text-uppercase mb-4">Location</h4><iframe width="400" height="150" src="https://www.openstreetmap.org/export/embed.html?bbox=76.62414550781251%2C12.055437094469546%2C79.19494628906251%2C13.790071437194856&amp;layer=mapnik" style="border: 1px solid black"></iframe>
+                <div class="col-md-4 mb-5 mb-lg-0 col-sm-4" >
+                    <h4 class="text-uppercase mb-4">Location</h4><iframe width="100%" height="100%" src="https://www.openstreetmap.org/export/embed.html?bbox=77.53189086914062%2C12.948687079902895%2C77.6122283935547%2C13.002885153354846&amp;layer=mapnik&amp;marker=12.975787696523449%2C77.57205963134766" style="border: 1px solid black"><a href="https://www.openstreetmap.org/?mlat=12.9758&amp;mlon=77.5721#map=14/12.9758/77.5721"></a></iframe>
                     <p>Bangalore, India</p>
                 </div>
-                <div class="col-md-4 mb-5 mb-lg-0">
-                    <h4 class="text-uppercase">Around the Web</h4>
-                    <ul class="list-inline">
+                <div class="col-md-4 mb-5 mb-lg-0 col-sm-4">
+                    <h4 class="text-uppercase" style="">Around the Web</h4>
+                    <ul class="list-inline" style="padding-top: 50%">
                         <li class="list-inline-item"><a class="btn btn-outline-light text-center btn-social rounded-circle" role="button" href="https://www.facebook.com/mr.dudeja" target="_blank"><i class="fa fa-facebook fa-fw"></i></a></li>
                         <li class="list-inline-item"><a class="btn btn-outline-light text-center btn-social rounded-circle" role="button" href="https://twitter.com/dudeja_abhas" target="_blank"><i class="fa fa-twitter fa-fw"></i></a></li>
                         <li class="list-inline-item"><a class="btn btn-outline-light text-center btn-social rounded-circle" role="button" href="https://www.instagram.com/mr.dudeja/" target="_blank"><i class="fa fa-instagram fa-fw"></i></a></li>
                         <li class="list-inline-item"><a class="btn btn-outline-light text-center btn-social rounded-circle" role="button" href="mailto:abhasdudeja.planner@gmail.com" target="_blank"><i class="fa fa-envelope fa-fw"></i></a></li>
                     </ul>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mb-5 mb-lg-0 col-sm-4">
                     <h4 class="text-uppercase mb-4">Contact ME</h4>
-                    <p class="lead mb-0"><span>Please feel free to connect with me using any of the given methods.</span></p>
+                    <p class="lead mb-0"  style="padding-top: 50%;"><span>Please feel free to connect with me using any of the given methods.</span></p>
                 </div>
             </div>
         </div>
