@@ -1,8 +1,8 @@
 function createNavbar(page) {
     // Your HTML code snippet here
-	let navbarHtml = ''
+	let navbarHtml = '';
 	if (page === 'projects'){
-		let navbarHtml = `
+		navbarHtml = `
         <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-secondary text-uppercase" id="mainNav">
             <div class="container">
                 <a class="navbar-brand" href="index.html#page-top">Abhas Dudeja</a>
@@ -20,10 +20,10 @@ function createNavbar(page) {
                 </div>
             </div>
         </nav>`;
-		document.body.innerHTML += navbarHtml;
+		document.body.insertAdjacentHTML('afterbegin', navbarHtml);
 	}
 	else {
-		let navbarHtml = `
+		navbarHtml = `
         <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-secondary text-uppercase" id="mainNav">
             <div class="container">
                 <a class="navbar-brand" href="index.html#page-top">Abhas Dudeja</a>
@@ -41,8 +41,6 @@ function createNavbar(page) {
                 </div>
             </div>
         </nav>`;
-		document.body.innerHTML += navbarHtml;
+		document.body.insertAdjacentHTML('afterbegin', navbarHtml);
 	}
-	
-    
-    }
+}
