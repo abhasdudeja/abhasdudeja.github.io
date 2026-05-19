@@ -1,0 +1,37 @@
+:root {
+  /* === Color Palette === */
+  --clr-bg:          #0a0f1e;
+  --clr-bg-2:        #0d1426;
+  --clr-bg-3:        #111827;
+  --clr-teal:        #00d4ff;
+  --clr-teal-dim:    #00a3c4;
+  --clr-green:       #18bc9c;
+  --clr-green-neon:  #39ff14;
+  --clr-amber:       #f59e0b;
+  --clr-white:       #f0f6ff;
+  --clr-muted:       #8892a4;
+  --clr-border:      rgba(0, 212, 255, 0.15);
+
+  /* === Glow Effects === */
+  --glow-teal:       0 0 20px rgba(0, 212, 255, 0.4), 0 0 60px rgba(0, 212, 255, 0.15);
+  --glow-green:      0 0 20px rgba(57, 255, 20, 0.3);
+  --glow-text:       0 0 30px rgba(0, 212, 255, 0.5);
+
+  /* === Glassmorphism === */
+  --glass-bg:        rgba(13, 20, 38, 0.7);
+  --glass-border:    1px solid rgba(0, 212, 255, 0.18);
+
+  /* === Typography === */
+  --font-display:    'Orbitron', 'Montserrat', sans-serif;
+  --font-body:       'Inter', 'Lato', sans-serif;
+  --font-mono:       'JetBrains Mono', 'Fira Code', monospace;
+
+  /* === Spacing === */
+  --section-pad:     clamp(80px, 10vw, 140px);
+  --container-max:   1200px;
+
+  /* === Transitions === */
+  --ease-out-expo:   cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out:     cubic-bezier(0.645, 0.045, 0.355, 1.000);
+  --transition:      all 0.3s var(--ease-out-expo);
+}

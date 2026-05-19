@@ -1,179 +1,507 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <meta name="description" content="Abhas Dudeja - Urban and Transport Planner, Data Analyst, and GIS Enthusiast based in Bangalore, India">
-    <meta name="keywords" content="Urban Planning, Transport Planning, Data Analysis, GIS, Transport Systems, Electric Vehicles">
-    <meta name="author" content="Abhas Dudeja">
-    <meta property="og:title" content="Abhas Dudeja - Urban and Transport Planner">
-    <meta property="og:description" content="Data Analyst, Urban and Transport Planner, and GIS Enthusiast">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://abhasdudeja.github.io">
-    <title>Abhas Dudeja - Urban and Transport Planner | Data Analyst | GIS Enthusiast</title>
-    
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css">
-    <link rel="stylesheet" href="assets/css/Projects-Clean.css">
-    <link rel="stylesheet" href="assets/css/custom.css">
-    
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/freelancer.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta name="description" content="Abhas Dudeja — Urban & Transport Planner, Data Analyst, GIS Enthusiast, EV Fleet Analyst based in Bangalore, India.">
+  <meta name="keywords" content="Urban Planning, Transport Planning, Data Analysis, GIS, Electric Vehicles, EV Fleet, Bus Electrification">
+  <meta name="author" content="Abhas Dudeja">
+  <meta property="og:title" content="Abhas Dudeja — Urban & Transport Planner">
+  <meta property="og:description" content="Transport Planner · Data Analyst · GIS Enthusiast · EV Specialist">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://abhasdudeja.github.io">
+  <title>Abhas Dudeja — Transport Planner · Data Analyst · EV Specialist</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/theme-tokens.css">
+  <link rel="stylesheet" href="assets/css/custom.css">
+
+  <!-- Three.js -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+
+  <!-- GSAP + Plugins -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/MotionPathPlugin.min.js"></script>
+
+  <!-- SplitType -->
+  <script src="https://cdn.jsdelivr.net/npm/split-type@0.3.4/umd/index.min.js"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+
+  <!-- Site scripts -->
+  <script src="assets/js/hero-scene.js" defer></script>
+  <script src="assets/js/skills.js" defer></script>
+  <script src="assets/js/timeline.js" defer></script>
+  <script src="assets/js/projects.js" defer></script>
+  <script src="assets/js/animations.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
 </head>
 
-<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="72">
-    <header class="text-center text-white bg-primary masthead" id="home">
-        <div class="container">
-            <img class="rounded-circle img-fluid d-block mx-auto" alt="Abhas Dudeja profile picture" src="assets/img/profile-image.jpg" loading="lazy">
-            <h1>Abhas Dudeja</h1>
-            <hr class="star-light">
-            <h2 class="font-weight-light mb-0">Data Analyst - Urban and Transport Planner - GIS Enthusiast</h2>
-        </div>
-    </header>
-    <section class="text-white bg-primary mb-0 pb-0" id="about">
-        <div class="container">
-            <h2 class="text-uppercase text-center text-white">About</h2>
-            <hr class="star-light mb-5">
-            <div class="row">
-                <div class="col-lg-12 col-xl-12 col-xxl-12 offset-xl-0 text-center ms-auto col-auto">
-                    <p class="lead">Abhas is an <strong>Urban and Transport Planner</strong>, based out of Bangalore. He is currently working full-time at a US based Startup called Microgrid Labs as a Transport Planner and Analyst.</p>
-                    <p class="lead text-center">A keen advocate of <strong>public transport</strong> and<strong> sustainable &amp; accessible urban mobility</strong>, Abhas blends his expertise in public transport operations with perceptive analytical skills to bring innovative technologies and strategies.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="text-white bg-primary mb-0" id="proficiency-skills">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1 class="text-center">PROFICIENCY AND SKILLS</h1>
-                    <hr class="star-light mb-5">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 text-center skill-item">
-                    <i class="fa fa-code"></i>
-                    <h6>Data Science and Analysis</h6>
-                </div>
-                <div class="col-md-4 text-center skill-item">
-                    <i class="fas fa-bus-alt"></i>
-                    <h6>Public Transport Systems</h6>
-                </div>
-                <div class="col-md-4 text-center skill-item">
-                    <img src="assets/img/car-bolt.svg" alt="Electric Vehicles icon">
-                    <h6>Electric Vehicles</h6>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4 text-center skill-item">
-                    <i class="fas fa-globe"></i>
-                    <h6>Geo-Spatial Information (GIS)</h6>
-                </div>
-                <div class="col-md-4 text-center skill-item">
-                    <i class="fas fa-bolt"></i>
-                    <h6>Electric Mobility Systems</h6>
-                </div>
-                <div class="col-md-4 text-center skill-item">
-                    <i class="fas fa-recycle"></i>
-                    <h6>Transportation Systems Planning and Design Strategies</h6>
-                </div>
-            </div>
-        </div>
-    </section>
-    <script type="text/javascript">
-        createNavbar();
-    </script>
-    <footer class="text-center footer" id="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-5 mb-lg-0 col-sm-4" >
-                    <h4 class="text-uppercase mb-4">Location</h4>
-                </div>
-                <div class="col-md-4 mb-5 mb-lg-0 col-sm-4" >
-                    <h4 class="text-uppercase mb-4">Around the Web</h4>
-                </div>
-                <div class="col-md-4 mb-5 mb-lg-0 col-sm-4" >
-                    <h4 class="text-uppercase mb-4">Contact ME</h4>
-                </div>
-            </div>
-            <div class="row justify-content-center align-items-center">
-                <div class="col-md-4 mb-5 mb-lg-0 d-flex flex-column align-items-center justify-content-center text-center">
-                    <iframe width="100%" height="350" src="https://www.openstreetmap.org/export/embed.html?bbox=77.53189086914062%2C12.948687079902895%2C77.6122283935547%2C13.002885153354846&amp;layer=mapnik&amp;marker=12.975787696523449%2C77.57205963134766" title="Location map - Bangalore, India" loading="lazy"></iframe>
-                    <p class="mt-3 mb-0">Bangalore, India</p>
-                </div>
-                <div class="col-md-4 mb-5 mb-lg-0 d-flex flex-column align-items-center justify-content-center text-center">
-                    <ul class="list-inline mb-0">
-                        <li class="list-inline-item"><a class="btn btn-outline-light btn-social rounded-circle" role="button" href="https://www.facebook.com/mr.dudeja" target="_blank" aria-label="Facebook"><i class="fa fa-facebook fa-fw"></i></a></li>
-                        <li class="list-inline-item"><a class="btn btn-outline-light btn-social rounded-circle" role="button" href="https://twitter.com/dudeja_abhas" target="_blank" aria-label="Twitter"><i class="fa fa-twitter fa-fw"></i></a></li>
-                        <li class="list-inline-item"><a class="btn btn-outline-light btn-social rounded-circle" role="button" href="https://www.instagram.com/mr.dudeja/" target="_blank" aria-label="Instagram"><i class="fa fa-instagram fa-fw"></i></a></li>
-                        <li class="list-inline-item"><a class="btn btn-outline-light btn-social rounded-circle" role="button" href="mailto:abhasdudeja.planner@gmail.com" target="_blank" aria-label="Email"><i class="fa fa-envelope fa-fw"></i></a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-5 mb-lg-0 d-flex flex-column align-items-center justify-content-center text-center">
-                    <p class="lead mb-0">Please feel free to connect with me using any of the given methods.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <div class="text-center text-white copyright py-4">
-        <div class="container"><small>Copyright ©&nbsp;Abhas Dudeja 2024</small></div>
-    </div>
-    
-    <!-- Scroll to Top Button -->
-    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
-        <i class="fa fa-arrow-up"></i>
-    </button>
-    
-    <script>
-        // Scroll to top functionality
-        const scrollToTopBtn = document.getElementById('scrollToTop');
-        
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                scrollToTopBtn.classList.add('show');
-            } else {
-                scrollToTopBtn.classList.remove('show');
-            }
-        });
-        
-        scrollToTopBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Fade in sections on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('section').forEach(section => {
-            section.classList.add('fade-in');
-            observer.observe(section);
-        });
-    </script>
-</body>
+<body id="page-top">
 
+  <!-- ── Navigation ── -->
+  <nav id="main-nav" aria-label="Main navigation">
+    <a href="#hero" class="nav-logo">AD</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- ── Section 1: Hero ── -->
+  <section id="hero" class="section-hero">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero-overlay" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <span class="hero-eyebrow">Urban + Transport Planner</span>
+      <h2 class="hero-title" id="hero-title">Abhas Dudeja</h2>
+      <p class="hero-subtitle" id="hero-typewriter" aria-label="Transport Planner · Data Analyst · GIS Enthusiast · EV Specialist"></p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn-glow">View Work</a>
+        <a href="#contact" class="btn-ghost">Get in Touch</a>
+      </div>
+    </div>
+
+    <div class="hero-stats" aria-label="Quick statistics">
+      <div class="stat-card glass-card">
+        <span class="stat-number" data-target="7" id="stat-years">0</span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div class="stat-card glass-card">
+        <span class="stat-number" data-target="5" id="stat-orgs">0</span>
+        <span class="stat-label">Organisations</span>
+      </div>
+      <div class="stat-card glass-card">
+        <span class="stat-number" data-target="12" id="stat-projects">0</span><span class="stat-suffix">+</span>
+        <span class="stat-label">Projects</span>
+      </div>
+      <div class="stat-card glass-card">
+        <span class="stat-number" data-target="3" id="stat-countries">0</span>
+        <span class="stat-label">Countries</span>
+      </div>
+    </div>
+
+    <div class="scroll-indicator" aria-hidden="true">
+      <span>Scroll to explore</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ── Section 2: About ── -->
+  <section id="about" class="section-about">
+    <div class="container-wide">
+      <div class="about-grid">
+
+        <div class="about-text">
+          <span class="section-label">About Me</span>
+          <h2 class="section-title">
+            Connecting Cities Through<br>
+            <em class="text-teal">Data-Driven Planning</em>
+          </h2>
+          <p class="about-para">
+            Urban and Transport Planner based in Bangalore, currently working at
+            <strong>Microgrid Labs (USA)</strong> — analysing EV fleet charging
+            infrastructure and bus electrification at scale for transit agencies
+            across the United States.
+          </p>
+          <p class="about-para">
+            A keen advocate of <strong>public transport</strong> and sustainable
+            urban mobility, blending expertise in transit operations with perceptive
+            analytical and GIS skills to bring innovative strategies to cities
+            and fleets of the future.
+          </p>
+          <div class="about-tags">
+            <span class="tag">EV Fleet Analysis</span>
+            <span class="tag">Transit Planning</span>
+            <span class="tag">GIS &amp; Spatial Data</span>
+            <span class="tag">Bus Electrification</span>
+            <span class="tag">Urban Mobility</span>
+            <span class="tag">Data Science</span>
+          </div>
+        </div>
+
+        <div class="about-visual">
+          <div class="profile-ring-container">
+            <img
+              src="assets/img/profile-image.jpg"
+              alt="Abhas Dudeja"
+              class="profile-img"
+              id="profile-img"
+              width="220" height="220"
+              loading="lazy"
+            >
+            <canvas id="skills-radar" width="380" height="380" aria-hidden="true"></canvas>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Section 3: Skills ── -->
+  <section id="skills" class="section-skills">
+    <div class="container-wide">
+      <span class="section-label">Expertise</span>
+      <h2 class="section-title">Skills &amp; Proficiency</h2>
+      <p class="skills-subtitle">The domains where planning meets data meets electrification.</p>
+
+      <div class="hex-grid" id="hex-grid" role="list">
+
+        <div class="hex-cell" data-level="90" role="listitem">
+          <div class="hex-inner">
+            <i class="fas fa-chart-line" aria-hidden="true"></i>
+            <span class="hex-label">Data Science<br>&amp; Analysis</span>
+            <span class="hex-pct">90%</span>
+            <div class="hex-fill"></div>
+          </div>
+        </div>
+
+        <div class="hex-cell" data-level="95" role="listitem">
+          <div class="hex-inner">
+            <i class="fas fa-bus-alt" aria-hidden="true"></i>
+            <span class="hex-label">Public Transport<br>Systems</span>
+            <span class="hex-pct">95%</span>
+            <div class="hex-fill"></div>
+          </div>
+        </div>
+
+        <div class="hex-cell" data-level="88" role="listitem">
+          <div class="hex-inner">
+            <img src="assets/img/car-bolt.svg" alt="" class="hex-icon">
+            <span class="hex-label">Electric Vehicles<br>&amp; Charging</span>
+            <span class="hex-pct">88%</span>
+            <div class="hex-fill"></div>
+          </div>
+        </div>
+
+        <div class="hex-cell" data-level="92" role="listitem">
+          <div class="hex-inner">
+            <i class="fas fa-globe" aria-hidden="true"></i>
+            <span class="hex-label">Geospatial<br>Information (GIS)</span>
+            <span class="hex-pct">92%</span>
+            <div class="hex-fill"></div>
+          </div>
+        </div>
+
+        <div class="hex-cell" data-level="85" role="listitem">
+          <div class="hex-inner">
+            <i class="fas fa-bolt" aria-hidden="true"></i>
+            <span class="hex-label">Electric Mobility<br>Systems</span>
+            <span class="hex-pct">85%</span>
+            <div class="hex-fill"></div>
+          </div>
+        </div>
+
+        <div class="hex-cell" data-level="93" role="listitem">
+          <div class="hex-inner">
+            <i class="fas fa-route" aria-hidden="true"></i>
+            <span class="hex-label">Transport<br>Planning</span>
+            <span class="hex-pct">93%</span>
+            <div class="hex-fill"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Section 4: Experience Timeline ── -->
+  <section id="experience" class="section-experience">
+    <div class="container-wide">
+      <span class="section-label">Career Journey</span>
+      <h2 class="section-title">Experience</h2>
+      <p class="section-subtitle">A route through the milestones — scroll to ride the line →</p>
+    </div>
+
+    <div class="timeline-outer" id="timeline-outer">
+      <div class="timeline-track" id="timeline-track">
+
+        <!-- SVG route line (drawn by timeline.js) -->
+        <svg class="route-svg-wrap" id="route-svg" aria-hidden="true">
+          <path id="route-path" d=""/>
+          <g id="bus-marker">
+            <rect x="-14" y="-9" width="28" height="18" rx="4" fill="#00d4ff"/>
+            <text x="0" y="5.5" text-anchor="middle" font-size="7" font-family="monospace" font-weight="bold" fill="#0a0f1e">BUS</text>
+          </g>
+        </svg>
+
+        <!-- Station 1: CEPT — Ahmedabad -->
+        <div class="timeline-station" data-year="2017">
+          <div class="station-card glass-card">
+            <span class="station-current-badge" style="visibility:hidden">●</span>
+            <span class="station-year">2017 · Ahmedabad</span>
+            <h3>CEPT University — CRDF</h3>
+            <span class="station-role">Research Intern · Urban Transport</span>
+            <p class="station-desc">Deep-dived into India's Bus Rapid Transit landscape. Led primary field surveys for Surat Sitilink BRTS — counting passengers, timing headways, and mapping route performance gaps. Benchmarked citybus operations against national standards and delivered technical recommendations to Surat Municipal Corporation. First time turning raw transit data into policy-ready insights.</p>
+            <div class="station-tags">
+              <span>BRT</span><span>Field Surveys</span><span>Benchmarking</span><span>Surat Sitilink</span><span>Public Transport</span>
+            </div>
+          </div>
+          <div class="station-dot" aria-hidden="true">
+            <div class="station-pulse"></div>
+          </div>
+        </div>
+
+        <!-- Station 2: Volvo Buses — Pan India -->
+        <div class="timeline-station" data-year="2018">
+          <div class="station-card glass-card">
+            <span class="station-current-badge" style="visibility:hidden">●</span>
+            <span class="station-year">2018 · Pan India</span>
+            <h3>Volvo Buses India</h3>
+            <span class="station-role">Research Intern · Intercity Transport</span>
+            <p class="station-desc">Travelled key intercity coach corridors across India to understand traveller behaviour and service quality. Designed and deployed user perception surveys across multiple Volvo operator routes. Analysed brand consistency, onboard experience, and willingness-to-pay data. The research directly informed fleet and branding strategy for Volvo's India operations.</p>
+            <div class="station-tags">
+              <span>Intercity</span><span>Coach Research</span><span>User Perception</span><span>Brand Analysis</span>
+            </div>
+          </div>
+          <div class="station-dot" aria-hidden="true">
+            <div class="station-pulse"></div>
+          </div>
+        </div>
+
+        <!-- Station 3: Silvassa Smart City — EV Debut -->
+        <div class="timeline-station" data-year="2020">
+          <div class="station-card glass-card">
+            <span class="station-current-badge" style="visibility:hidden">●</span>
+            <span class="station-year">2020 · Silvassa, UT</span>
+            <h3>Silvassa Smart City Ltd</h3>
+            <span class="station-role">Transport Consultant · Electric Bus Planning</span>
+            <p class="station-desc">First foray into the world of electric mobility. Assessed route feasibility and charging infrastructure requirements for eBus deployment in Silvassa's Smart City programme. Sized the fleet for ridership demand, modelled depot charging schedules, and recommended charging station placement — laying groundwork for the city's public EV transition.</p>
+            <div class="station-tags">
+              <span>Electric Bus</span><span>Smart City</span><span>Fleet Sizing</span><span>Charging Infra</span><span>EV Planning</span>
+            </div>
+          </div>
+          <div class="station-dot" aria-hidden="true">
+            <div class="station-pulse"></div>
+          </div>
+        </div>
+
+        <!-- Station 4: L&T Infrastructure -->
+        <div class="timeline-station" data-year="2021">
+          <div class="station-card glass-card">
+            <span class="station-current-badge" style="visibility:hidden">●</span>
+            <span class="station-year">Nov 2021 – Oct 2022 · Multiple Cities</span>
+            <h3>L&amp;T Infrastructure Engineering</h3>
+            <span class="station-role">Post Graduate Engineer Trainee</span>
+            <p class="station-desc">Joined one of India's largest engineering conglomerates to hone skills at scale. Contributed to multi-modal transport planning studies, traffic impact assessments, and demand forecasting for major infrastructure projects. Produced GIS-based spatial analysis deliverables, coordinated with civil engineering teams, and deepened expertise in integrating transport into large urban developments.</p>
+            <div class="station-tags">
+              <span>Infrastructure</span><span>GIS</span><span>Traffic Analysis</span><span>Multi-modal</span><span>Demand Forecasting</span>
+            </div>
+          </div>
+          <div class="station-dot" aria-hidden="true">
+            <div class="station-pulse"></div>
+          </div>
+        </div>
+
+        <!-- Station 5: Microgrid Labs — Current -->
+        <div class="timeline-station timeline-station--current" data-year="2022">
+          <div class="station-card glass-card station-card--active">
+            <span class="station-current-badge">● Current</span>
+            <span class="station-year">2022 – Present · Bangalore / Remote (USA)</span>
+            <h3>Microgrid Labs</h3>
+            <span class="station-role">Transport Planner &amp; Analyst</span>
+            <p class="station-desc">Working with a US-based energy and transport startup to accelerate bus electrification across American transit agencies. Analyse fleet operations, route profiles, and energy loads to size charging infrastructure. Process GTFS feeds and real-world telemetry to build data pipelines for EV transition planning. Consult directly with transit agencies, utilities, and government clients on sustainable fleet strategy.</p>
+            <div class="station-tags">
+              <span>EV Fleets</span><span>Fleet Charging</span><span>GTFS</span><span>Data Pipelines</span><span>US Transit</span><span>Bus Electrification</span>
+            </div>
+          </div>
+          <div class="station-dot station-dot--active" aria-hidden="true">
+            <div class="station-pulse"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Section 5: Projects ── -->
+  <section id="projects" class="section-projects">
+    <div class="container-wide">
+      <span class="section-label">Portfolio</span>
+      <h2 class="section-title">Projects &amp; Work</h2>
+
+      <!-- Filter tabs -->
+      <div class="project-filters" role="group" aria-label="Project category filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="ev">EV &amp; Charging</button>
+        <button class="filter-btn" data-filter="transit">Transit Planning</button>
+        <button class="filter-btn" data-filter="research">Research</button>
+      </div>
+
+      <!-- Projects grid -->
+      <div class="projects-masonry" id="projects-grid">
+
+        <!-- Microgrid Labs — featured (spans 2 cols) -->
+        <div class="project-card glass-card project-card--featured" data-category="ev" data-modal="microgrid">
+          <div class="project-card-img">
+            <img src="assets/img/MGL_Logo.png" alt="Microgrid Labs" class="img-logo" loading="lazy">
+            <div class="project-card-overlay"><span>View Details</span></div>
+          </div>
+          <div class="project-card-body">
+            <span class="project-tag">EV &amp; Charging</span>
+            <h3>EV Fleet Charging &amp; Bus Electrification Analysis</h3>
+            <p>Microgrid Labs — USA (Remote)</p>
+            <span class="project-year">2022 – Present</span>
+          </div>
+        </div>
+
+        <!-- CEPT CRDF -->
+        <div class="project-card glass-card" data-category="transit" data-modal="cept">
+          <div class="project-card-img">
+            <img src="assets/img/logo-crdf.png" alt="CEPT CRDF" class="img-logo" loading="lazy">
+            <div class="project-card-overlay"><span>View Details</span></div>
+          </div>
+          <div class="project-card-body">
+            <span class="project-tag">Transit Planning</span>
+            <h3>City Bus &amp; BRT Benchmarking</h3>
+            <p>CEPT University — CRDF, Ahmedabad</p>
+            <span class="project-year">2017</span>
+          </div>
+        </div>
+
+        <!-- Volvo Buses -->
+        <div class="project-card glass-card" data-category="research" data-modal="volvo">
+          <div class="project-card-img">
+            <img src="assets/img/volvo-buses.jpg" alt="Volvo Buses intercity coach" class="img-photo" loading="lazy">
+            <div class="project-card-overlay"><span>View Details</span></div>
+          </div>
+          <div class="project-card-body">
+            <span class="project-tag">Research</span>
+            <h3>Inter-city Transport Research</h3>
+            <p>Volvo Buses India</p>
+            <span class="project-year">2018</span>
+          </div>
+        </div>
+
+        <!-- Silvassa Smart City -->
+        <div class="project-card glass-card" data-category="ev" data-modal="sscl">
+          <div class="project-card-img">
+            <img src="assets/img/sscl.jpg" alt="Silvassa Smart City" class="img-photo" loading="lazy">
+            <div class="project-card-overlay"><span>View Details</span></div>
+          </div>
+          <div class="project-card-body">
+            <span class="project-tag">EV &amp; Charging</span>
+            <h3>Electric Bus Operations Planning</h3>
+            <p>Silvassa Smart City Ltd</p>
+            <span class="project-year">2020</span>
+          </div>
+        </div>
+
+        <!-- L&T Infrastructure -->
+        <div class="project-card glass-card" data-category="transit" data-modal="lnt">
+          <div class="project-card-img">
+            <img src="assets/img/lntiel.png" alt="L&amp;T Infrastructure Engineering" class="img-logo" loading="lazy">
+            <div class="project-card-overlay"><span>View Details</span></div>
+          </div>
+          <div class="project-card-body">
+            <span class="project-tag">Transit Planning</span>
+            <h3>Infrastructure &amp; Transport Planning</h3>
+            <p>L&amp;T Infrastructure Engineering</p>
+            <span class="project-year">2021 – 2022</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Section 6: Contact ── -->
+  <section id="contact" class="section-contact">
+    <div class="container-wide">
+      <span class="section-label">Get in Touch</span>
+      <h2 class="section-title">Contact Me</h2>
+
+      <div class="contact-grid">
+
+        <div class="contact-map-wrap">
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=77.53189086914062%2C12.948687079902895%2C77.6122283935547%2C13.002885153354846&layer=mapnik&marker=12.975787696523449%2C77.57205963134766"
+            title="Location — Bangalore, India"
+            loading="lazy"
+            class="contact-map"
+          ></iframe>
+          <p class="map-label"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Bangalore, India</p>
+        </div>
+
+        <div class="contact-cards">
+          <a href="mailto:abhasdudeja.planner@gmail.com" class="contact-card glass-card">
+            <div class="contact-icon"><i class="fas fa-envelope" aria-hidden="true"></i></div>
+            <div>
+              <span class="contact-type">Email</span>
+              <span class="contact-value">abhasdudeja.planner@gmail.com</span>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/in/abhasdudeja" target="_blank" rel="noopener noreferrer" class="contact-card glass-card">
+            <div class="contact-icon"><i class="fab fa-linkedin-in" aria-hidden="true"></i></div>
+            <div>
+              <span class="contact-type">LinkedIn</span>
+              <span class="contact-value">linkedin.com/in/abhasdudeja</span>
+            </div>
+          </a>
+          <a href="https://twitter.com/dudeja_abhas" target="_blank" rel="noopener noreferrer" class="contact-card glass-card">
+            <div class="contact-icon"><i class="fab fa-twitter" aria-hidden="true"></i></div>
+            <div>
+              <span class="contact-type">Twitter</span>
+              <span class="contact-value">@dudeja_abhas</span>
+            </div>
+          </a>
+          <a href="https://www.instagram.com/mr.dudeja/" target="_blank" rel="noopener noreferrer" class="contact-card glass-card">
+            <div class="contact-icon"><i class="fab fa-instagram" aria-hidden="true"></i></div>
+            <div>
+              <span class="contact-type">Instagram</span>
+              <span class="contact-value">@mr.dudeja</span>
+            </div>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="container-wide">
+      <div class="footer-inner">
+        <span class="footer-brand">Abhas Dudeja</span>
+        <span class="footer-copy">© 2025 · Urban & Transport Planner · Bangalore, India</span>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/in/abhasdudeja" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://twitter.com/dudeja_abhas" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/mr.dudeja/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/mr.dudeja" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="mailto:abhasdudeja.planner@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── Modal overlay ── -->
+  <div id="modal-overlay" role="dialog" aria-modal="true" aria-label="Project details"></div>
+
+  <!-- ── Scroll to top ── -->
+  <button id="scroll-top-btn" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up" aria-hidden="true"></i>
+  </button>
+
+</body>
 </html>
