@@ -273,10 +273,11 @@ ul { list-style: none; }
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(3.2rem, 9vw, 7.5rem);
+  font-size: clamp(2.8rem, 7vw, 7rem);
   font-weight: 900;
   line-height: 0.95;
   letter-spacing: -0.02em;
+  white-space: nowrap;
   color: var(--clr-white);
   text-shadow: var(--glow-text);
   margin-bottom: 1.6rem;
@@ -1229,7 +1230,7 @@ footer {
 
   body { font-size: 17px; }
 
-  .hero-title { font-size: clamp(7rem, 8vw, 10rem); }
+  .hero-title { font-size: clamp(6rem, 7vw, 9rem); white-space: nowrap; }
   .hero-stats { gap: 2.5rem; }
   .stat-card { min-width: 160px; padding: 1.6rem 2.4rem; }
   .stat-number { font-size: 2.8rem; }
@@ -1260,7 +1261,7 @@ footer {
 /* 2560px — ultrawide */
 @media (min-width: 2560px) {
   :root { --container-max: 2300px; }
-  .hero-title { font-size: clamp(9rem, 9vw, 13rem); }
+  .hero-title { font-size: clamp(7rem, 8vw, 11rem); white-space: nowrap; }
   .projects-masonry { grid-template-columns: repeat(5, 1fr); }
   .project-card--featured { grid-column: span 2; }
 }
