@@ -40,13 +40,23 @@
       });
     }
 
-    /* ── Smooth anchor scroll (fallback for non-GSAP scrollTo) ── */
+    /* ── Smooth anchor scroll — Lenis if available, native fallback ── */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', e => {
-        const target = document.querySelector(anchor.getAttribute('href'));
+        const href   = anchor.getAttribute('href');
+        const target = document.querySelector(href);
         if (!target) return;
         e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        if (window.lenis) {
+          window.lenis.scrollTo(target, {
+            offset:   0,
+            duration: 1.2,
+            easing:   (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          });
+        } else {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
       });
     });
 

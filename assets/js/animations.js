@@ -10,6 +10,36 @@
 
     gsap.registerPlugin(ScrollTrigger, TextPlugin, MotionPathPlugin);
 
+    /* ====================================================
+       LENIS — smooth scroll, driven by GSAP ticker
+       ==================================================== */
+    function initLenis() {
+      if (typeof Lenis === 'undefined') return null;
+
+      const lenis = new Lenis({
+        duration:        1.15,
+        easing:          (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel:     true,
+        smoothTouch:     false,   // keep native momentum on touch/mobile
+        wheelMultiplier: 1.0,
+        touchMultiplier: 2.0,
+        infinite:        false,
+      });
+
+      /* Drive Lenis through GSAP's ticker so ScrollTrigger stays perfectly
+         in sync — no double-RAF, no drift on pinned sections               */
+      gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+      gsap.ticker.lagSmoothing(0);          // prevent large time-steps glitch
+
+      /* Notify ScrollTrigger on every Lenis scroll frame */
+      lenis.on('scroll', ScrollTrigger.update);
+
+      /* Expose globally so other modules (main.js, scroll-top) can use it */
+      window.lenis = lenis;
+
+      return lenis;
+    }
+
     /* ── Shared: section-label + title reveal helper ── */
     function revealHeading(section) {
       gsap.from(section.querySelector('.section-label'), {
@@ -82,7 +112,7 @@
       /* Counter animation */
       document.querySelectorAll('.stat-number').forEach(el => {
         const target = parseInt(el.dataset.target, 10);
-        tl.from({}, { // dummy tween so we can use onUpdate
+        tl.from({}, {
           duration: 0, onComplete() {
             gsap.to(el, {
               textContent: target, duration: 1.8, ease: 'power2.out',
@@ -253,11 +283,19 @@
       });
 
       btn.addEventListener('click', () => {
-        gsap.to(window, { scrollTo: 0, duration: 0.9, ease: 'power3.inOut' });
+        if (window.lenis) {
+          window.lenis.scrollTo(0, {
+            duration: 1.4,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          });
+        } else {
+          gsap.to(window, { scrollTo: 0, duration: 0.9, ease: 'power3.inOut' });
+        }
       });
     }
 
-    /* ── Boot ── */
+    /* ── Boot sequence ── */
+    initLenis();          // ← must be first so ScrollTrigger fires through Lenis
     initHero();
     initAbout();
     initSkills();
@@ -265,8 +303,9 @@
     initNav();
     initScrollTop();
 
-    /* Refresh after all fonts/layout settle */
+    /* Refresh after all fonts/images/layout settle */
     window.addEventListener('load', () => ScrollTrigger.refresh());
+
   });
 
 })();
