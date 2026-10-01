@@ -119,19 +119,21 @@
       const dot  = station.querySelector('.station-dot');
 
       if (card) {
+        /* immediateRender:false → cards stay visible unless/until their reveal actually runs,
+           refreshPriority:-1 → measured after the pin (and the hero pin) have laid out */
         gsap.from(card, {
-          opacity: 0, y: 55, duration: 0.75, ease: 'power3.out',
+          opacity: 0, y: 55, duration: 0.75, ease: 'power3.out', immediateRender: false,
           scrollTrigger: {
-            trigger: station, containerAnimation: pinTween,
+            trigger: station, containerAnimation: pinTween, refreshPriority: -1,
             start: 'left 82%', toggleActions: 'play none none reverse',
           },
         });
       }
       if (dot) {
         gsap.from(dot, {
-          scale: 0, duration: 0.5, ease: 'back.out(3)',
+          scale: 0, duration: 0.5, ease: 'back.out(3)', immediateRender: false,
           scrollTrigger: {
-            trigger: station, containerAnimation: pinTween,
+            trigger: station, containerAnimation: pinTween, refreshPriority: -1,
             start: 'left 76%',
           },
         });

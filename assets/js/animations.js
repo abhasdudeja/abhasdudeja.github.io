@@ -65,72 +65,137 @@
        HERO — runs immediately on load
        ==================================================== */
     function initHero() {
-      const tl = gsap.timeline({ delay: 0.2 });
+      const scene    = window.heroScene;          // null when the WebGL scene is unavailable
+      const hasSplit = typeof SplitType !== 'undefined';
+      const tl       = gsap.timeline({ delay: 0.15 });
 
-      /* Eyebrow */
-      if (typeof SplitType !== 'undefined') {
+      /* ── 1. Scene boot: camera sweeps in while the grid reveals and routes draw on ── */
+      if (scene) {
+        tl.to(scene.state, { intro: 1, duration: 3.2, ease: 'none' }, 0);   // scene eases internally
+      }
+      tl.fromTo('.hero-overlay', { opacity: 0 }, { opacity: 1, duration: 1.4, ease: 'power2.out' }, 0);
+
+      /* ── 2. Eyebrow: letters flip in ── */
+      const TEXT_AT = scene ? 0.9 : 0.1;
+      gsap.set('.hero-eyebrow', { opacity: 1 });
+      if (hasSplit) {
         const eyebrow = new SplitType('.hero-eyebrow', { types: 'chars' });
-        gsap.set('.hero-eyebrow', { opacity: 1 });
         tl.from(eyebrow.chars, {
           opacity: 0, y: 24, rotateX: -90, transformOrigin: 'top center',
-          duration: 0.55, stagger: 0.025, ease: 'back.out(2)'
-        });
+          duration: 0.55, stagger: 0.02, ease: 'back.out(2)',
+        }, TEXT_AT);
       } else {
-        tl.from('.hero-eyebrow', { opacity: 0, y: 20, duration: 0.6, ease: 'power3.out' });
-        gsap.set('.hero-eyebrow', { opacity: 1 });
+        tl.from('.hero-eyebrow', { opacity: 0, y: 20, duration: 0.6, ease: 'power3.out' }, TEXT_AT);
       }
 
-      /* Title */
-      if (typeof SplitType !== 'undefined') {
-        const title = new SplitType('#hero-title', { types: 'chars' });
-        tl.from(title.chars, {
-          opacity: 0, y: 55, scale: 0.6,
-          duration: 0.75, stagger: 0.035, ease: 'expo.out',
-        }, '-=0.25');
+      /* ── 3. Title: letters rise from below with a glow flash ── */
+      let titleChars = null;
+      if (hasSplit) {
+        titleChars = new SplitType('#hero-title', { types: 'chars' }).chars;
+        tl.from(titleChars, {
+          opacity: 0, y: 70, rotateX: 40, scale: 0.7, filter: 'blur(8px)',
+          duration: 0.9, stagger: 0.04, ease: 'expo.out',
+        }, TEXT_AT + 0.25);
+        tl.fromTo(titleChars,
+          { textShadow: '0 0 40px rgba(0,212,255,0.9)' },
+          { textShadow: '0 0 0px rgba(0,212,255,0)', duration: 1.2, stagger: 0.04, ease: 'power2.out' },
+          TEXT_AT + 0.6);
       } else {
-        tl.from('#hero-title', { opacity: 0, y: 40, duration: 0.8, ease: 'expo.out' }, '-=0.25');
+        tl.from('#hero-title', { opacity: 0, y: 40, duration: 0.8, ease: 'expo.out' }, TEXT_AT + 0.25);
       }
 
-      /* Typewriter subtitle */
-      document.getElementById('hero-typewriter').textContent = '';
-      tl.to('#hero-typewriter', {
-        duration: 2.8,
-        text: { value: 'Fleet Electrification · Transit Planning · Transport Modelling · Data & GIS', delimiter: '' },
-        ease: 'none',
-      }, '-=0.15');
+      /* ── 4. Typewriter subtitle ── */
+      const subtitle = document.getElementById('hero-typewriter');
+      const subtitleText = subtitle.textContent;
+      subtitle.textContent = '';
+      tl.to(subtitle, {
+        duration: 2.6, ease: 'none',
+        text: { value: subtitleText, delimiter: '' },
+      }, TEXT_AT + 0.9);
 
-      /* CTA buttons */
+      /* ── 5. CTA buttons + stat cards ── */
       tl.from('.hero-cta a', {
-        opacity: 0, y: 28, duration: 0.55,
-        stagger: 0.14, ease: 'power3.out',
-      }, '-=1.8');
+        opacity: 0, y: 28, duration: 0.55, stagger: 0.14, ease: 'power3.out',
+      }, TEXT_AT + 1.3);
 
-      /* Stat cards */
       tl.from('.stat-card', {
-        opacity: 0, y: 20, scale: 0.9, duration: 0.5,
-        stagger: 0.1, ease: 'back.out(1.5)',
-      }, '-=1.6');
+        opacity: 0, y: 24, scale: 0.9, duration: 0.5, stagger: 0.1, ease: 'back.out(1.5)',
+      }, TEXT_AT + 1.6);
 
-      /* Counter animation */
-      document.querySelectorAll('.stat-number').forEach(el => {
-        const target = parseInt(el.dataset.target, 10);
-        tl.from({}, {
-          duration: 0, onComplete() {
-            gsap.to(el, {
-              textContent: target, duration: 1.8, ease: 'power2.out',
-              snap: { textContent: 1 },
-              onUpdate() { el.textContent = Math.round(parseFloat(el.textContent)); }
+      document.querySelectorAll('.stat-number').forEach((el, i) => {
+        tl.to(el, {
+          textContent: parseInt(el.dataset.target, 10),
+          duration: 1.8, ease: 'power2.out', snap: { textContent: 1 },
+          onUpdate() { el.textContent = Math.round(parseFloat(el.textContent)).toLocaleString('en-IN'); },
+        }, TEXT_AT + 1.8 + i * 0.1);
+      });
+
+      tl.from('.scroll-indicator', { opacity: 0, y: 10, duration: 0.8 }, TEXT_AT + 2.4);
+
+      /* If animation frames are frozen (hidden tab, embedded preview, throttled browser),
+         don't leave the hero half-hidden: jump straight to the finished state. */
+      setTimeout(() => { if (gsap.ticker.time < 0.5) tl.progress(1); }, 2500);
+
+      /* ── 6. Scroll journey: the hero pins and scrolling drives the fleet (hero-scene.js).
+            Progress 0 → 1 over ~2.6 screens; text stays while the fleet runs, then lifts
+            away in layers as the camera pulls back to reveal the whole network. ── */
+      const journeyFill   = document.getElementById('journey-fill');
+      const journeyStops  = document.querySelectorAll('.hero-journey li');
+      const PIN_DISTANCE  = scene ? '+=260%' : '+=0%';
+
+      const out = gsap.timeline({
+        scrollTrigger: {
+          trigger: '#hero', start: 'top top', end: PIN_DISTANCE, scrub: 0.8,
+          pin: !!scene, anticipatePin: 1,
+          refreshPriority: 1,   // measure this pin first — the timeline pin below depends on its spacer
+          onUpdate(self) {
+            const p = self.progress;
+            if (scene) scene.setScroll(p);
+            if (journeyFill) journeyFill.style.transform = `scaleX(${p})`;
+            journeyStops.forEach(li => li.classList.toggle('active', p >= parseFloat(li.dataset.at)));
+          },
+        },
+      });
+      window.heroJourney = out;   // handy for debugging: heroJourney.progress(0.5)
+      out
+        .to('.scroll-indicator', { opacity: 0, ease: 'none', duration: 0.08 }, 0)
+        .to('.hero-eyebrow',     { y: -70,  opacity: 0, ease: 'none', duration: 0.3 }, 0.6)
+        .to('#hero-title',       { y: -110, scale: 0.92, opacity: 0, ease: 'none', duration: 0.3 }, 0.62)
+        .to('#hero-typewriter',  { y: -90,  opacity: 0, ease: 'none', duration: 0.3 }, 0.64)
+        .to('.hero-cta',         { y: -70,  opacity: 0, ease: 'none', duration: 0.3 }, 0.66)
+        .to('.hero-stats',       { y: -50,  opacity: 0, ease: 'none', duration: 0.3 }, 0.68)
+        .to('.hero-overlay',     { opacity: 0.35, ease: 'none', duration: 0.4 }, 0.6);
+
+      /* ── 7. Pointer: content tilts, scene parallaxes, letters lift near the cursor ── */
+      if (window.matchMedia('(hover: hover)').matches) {
+        const tiltX = gsap.quickTo('.hero-content', 'rotateX', { duration: 0.8, ease: 'power3.out' });
+        const tiltY = gsap.quickTo('.hero-content', 'rotateY', { duration: 0.8, ease: 'power3.out' });
+        const charY = titleChars ? titleChars.map(c => gsap.quickTo(c, 'y', { duration: 0.35, ease: 'power2.out' })) : [];
+        let rafPending = false, lastEvent = null;
+
+        document.addEventListener('mousemove', e => {
+          lastEvent = e;
+          if (rafPending) return;
+          rafPending = true;
+          requestAnimationFrame(() => {
+            rafPending = false;
+            const px = (lastEvent.clientX / window.innerWidth  - 0.5) * 2;
+            const py = (lastEvent.clientY / window.innerHeight - 0.5) * 2;
+            if (scene) scene.setPointer(px, py);
+            tiltY(px * 4);
+            tiltX(-py * 4);
+
+            /* magnetic letters: lift within ~140px of the cursor */
+            titleChars && titleChars.forEach((c, i) => {
+              const r  = c.getBoundingClientRect();
+              const dx = lastEvent.clientX - (r.left + r.width / 2);
+              const dy = lastEvent.clientY - (r.top  + r.height / 2);
+              const d  = Math.hypot(dx, dy);
+              charY[i](d < 140 ? -(1 - d / 140) * 14 : 0);
             });
-          }
-        }, '-=1.4');
-      });
-
-      /* Scroll-line pulse */
-      gsap.to('.scroll-line', {
-        scaleY: 0, transformOrigin: 'top center',
-        duration: 1.1, repeat: -1, ease: 'power2.in',
-        onRepeat() { gsap.set('.scroll-line', { scaleY: 1 }); }
-      });
+          });
+        });
+      }
     }
 
     /* ====================================================

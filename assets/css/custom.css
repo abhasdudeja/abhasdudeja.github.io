@@ -411,12 +411,97 @@ ul { list-style: none; }
   color: var(--clr-muted);
 }
 
-.scroll-line {
-  width: 1px;
-  height: 40px;
-  background: linear-gradient(to bottom, var(--clr-teal), transparent);
-  transform-origin: top;
+.scroll-mouse {
+  width: 22px;
+  height: 36px;
+  border: 1.5px solid rgba(0, 212, 255, 0.55);
+  border-radius: 12px;
+  position: relative;
 }
+
+.scroll-wheel {
+  position: absolute;
+  left: 50%;
+  top: 7px;
+  width: 3px;
+  height: 7px;
+  margin-left: -1.5px;
+  border-radius: 2px;
+  background: var(--clr-teal);
+  box-shadow: 0 0 8px var(--clr-teal);
+  animation: scroll-wheel 1.8s var(--ease-in-out) infinite;
+}
+
+@keyframes scroll-wheel {
+  0%   { transform: translateY(0);    opacity: 0; }
+  20%  { opacity: 1; }
+  70%  { transform: translateY(13px); opacity: 1; }
+  100% { transform: translateY(16px); opacity: 0; }
+}
+
+/* Journey HUD — route progress bar driven by scroll */
+.hero-journey {
+  position: absolute;
+  left: 2.5rem;
+  bottom: 2rem;
+  width: min(340px, 40vw);
+  z-index: 2;
+  font-family: var(--font-mono);
+}
+
+.journey-line {
+  height: 2px;
+  background: rgba(0, 212, 255, 0.18);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.journey-fill {
+  height: 100%;
+  background: var(--clr-teal);
+  box-shadow: 0 0 10px var(--clr-teal);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.hero-journey ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0.6rem 0 0;
+  padding: 0;
+}
+
+.hero-journey li {
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--clr-muted);
+  position: relative;
+  padding-top: 0.5rem;
+  transition: color 0.3s;
+}
+
+.hero-journey li::before {
+  content: '';
+  position: absolute;
+  top: -5px; left: 0;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--clr-bg);
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.hero-journey li.active { color: var(--clr-teal); }
+.hero-journey li.active::before { background: var(--clr-teal); box-shadow: 0 0 8px var(--clr-teal); }
+
+.section-hero.hero-fallback .hero-journey { display: none; }
+
+/* 3D tilt + per-letter hover live on the hero content */
+.hero-content { transform-style: preserve-3d; perspective: 1200px; }
+.hero-title .char { display: inline-block; will-change: transform; }
+.hero-title .char:hover { color: var(--clr-teal); }
 
 /* ============================================================
    ABOUT SECTION
@@ -1371,7 +1456,7 @@ footer {
 
 @media (max-width: 480px) {
   .hero-content { margin-top: 0; }
-  .hero-eyebrow { letter-spacing: 0.18em; font-size: 0.7rem; }
+  .hero-eyebrow { letter-spacing: 0.18em; font-size: 0.7rem; white-space: normal; max-width: 88vw; line-height: 1.7; }
   .hero-cta { margin-bottom: 2.2rem; }
   .hero-stats {
     display: grid;
@@ -1381,6 +1466,7 @@ footer {
   }
   .stat-card { min-width: 0; padding: 0.7rem 0.5rem; }
   .scroll-indicator { display: none; }
+  .hero-journey { left: 1rem; right: 1rem; width: auto; bottom: 1rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
