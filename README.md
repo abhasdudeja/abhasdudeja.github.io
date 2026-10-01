@@ -1,82 +1,37 @@
-# Abhas Dudeja - GitHub Profile Page
+# Abhas Dudeja — Portfolio
 
-Personal portfolio website hosted on GitHub Pages showcasing professional work, projects, and expertise in Urban and Transport Planning, Data Analysis, and GIS.
+Personal portfolio for an Urban & Transport Planner / Data Analyst / GIS & EV fleet specialist, hosted on GitHub Pages: https://abhasdudeja.github.io
 
-## 🌐 Live Site
-
-Visit: [https://abhasdudeja.github.io](https://abhasdudeja.github.io)
-
-## 📁 Project Structure
+## Structure
 
 ```
 .
-├── index.html              # Main homepage
-├── projects.html           # Projects showcase page
-├── assets/                 # Shared assets (CSS, JS, images, fonts)
-│   ├── bootstrap/          # Bootstrap framework files
-│   ├── css/               # Custom stylesheets
-│   ├── fonts/             # FontAwesome and custom fonts
-│   ├── img/               # Images and logos
-│   └── js/                # JavaScript files
-└── data/                  # Data files (CSV, etc.)
+├── index.html          # Single-page site (hero, about, skills, experience, projects, contact)
+├── projects.html       # Redirect stub to index.html#projects
+├── favicon.svg
+└── assets/
+    ├── css/            # theme-tokens.css (design tokens), custom.css
+    ├── js/             # hero-scene (Three.js), animations (GSAP/Lenis), timeline, skills (Chart.js), projects (filters + modals), main (nav)
+    ├── img/            # logos, photos, og-image.png
+    └── fonts/          # Font Awesome 5 (icons)
 ```
 
-## 🚀 Features
+## Stack
 
-- **Responsive Design**: Mobile-friendly layout using Bootstrap
-- **Professional Portfolio**: Showcases work experience and projects
-- **Project Showcase**: Detailed project information with modal views
-- **Contact Information**: Social media links and contact details
-- **Interactive Maps**: OpenStreetMap integration for location display
+Plain HTML/CSS/JS, no build step. Libraries load from jsDelivr: Three.js, GSAP (ScrollTrigger, TextPlugin, MotionPathPlugin), Lenis, SplitType, Chart.js. Icons: Font Awesome 5 (local). Fonts: Google Fonts.
 
-## 🛠️ Technologies Used
-
-- **HTML5/CSS3**: Semantic markup and modern styling
-- **Bootstrap 5**: Responsive framework
-- **FontAwesome**: Icon library
-- **JavaScript**: Interactive functionality
-- **OpenStreetMap**: Location mapping
-
-## 📝 Pages
-
-### Homepage (`index.html`)
-- Professional introduction
-- About section
-- Skills and proficiency showcase
-- Contact information with embedded map
-
-### Projects (`projects.html`)
-- Professional projects and organizations
-- Personal projects and endeavors
-- Interactive modals with detailed project information
-
-## 🔧 Development
-
-### Local Development
-Simply open `index.html` in a web browser or use a local server:
+## Local development
 
 ```bash
-# Using Python
 python -m http.server 8000
-
-# Using Node.js (http-server)
-npx http-server
 ```
 
-## 📦 Deployment
+## Deployment
 
-This repository is configured for GitHub Pages. The site is automatically deployed from the `main` branch.
+GitHub Pages serves the `main` branch automatically.
 
-## 📄 License
+## Contact
 
-Copyright © Abhas Dudeja 2024
+[LinkedIn](https://www.linkedin.com/in/abhasdudeja) · abhasdudeja.planner@gmail.com
 
-## 🔗 Links
-
-- **LinkedIn**: [Profile](https://www.linkedin.com/in/abhas-dudeja)
-- **Email**: abhasdudeja.planner@gmail.com
-
----
-
-*Urban and Transport Planner | Data Analyst | GIS Enthusiast*
-
+© Abhas Dudeja

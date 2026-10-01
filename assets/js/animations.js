@@ -87,6 +87,7 @@
 
       /* Typewriter subtitle */
       if (!reduced) {
+        document.getElementById('hero-typewriter').textContent = '';
         tl.to('#hero-typewriter', {
           duration: 2.8,
           text: { value: 'Transport Planner · Data Analyst · GIS Enthusiast · EV Specialist', delimiter: '' },
@@ -302,6 +303,9 @@
     initContact();
     initNav();
     initScrollTop();
+
+    const yr = document.getElementById('footer-year');
+    if (yr) yr.textContent = new Date().getFullYear();
 
     /* Refresh after all fonts/images/layout settle */
     window.addEventListener('load', () => ScrollTrigger.refresh());
