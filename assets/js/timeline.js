@@ -5,6 +5,10 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+    /* Reduced motion: CSS renders the timeline as a static vertical list */
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    /* Phones: CSS shows a vertical list instead of the pinned horizontal scroll */
+    if (window.matchMedia('(max-width: 768px)').matches) return;
 
     const outer     = document.getElementById('timeline-outer');
     const track     = document.getElementById('timeline-track');

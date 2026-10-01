@@ -4,58 +4,54 @@
   'use strict';
 
   document.addEventListener('DOMContentLoaded', () => {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     /* ── Mobile nav toggle ── */
     const toggle  = document.getElementById('nav-toggle');
     const navList = document.getElementById('nav-links');
 
     if (toggle && navList) {
-      toggle.addEventListener('click', () => {
-        const open = toggle.classList.toggle('open');
+      const isOpen = () => navList.classList.contains('open');
+
+      const setMenu = open => {
+        toggle.classList.toggle('open', open);
         navList.classList.toggle('open', open);
         toggle.setAttribute('aria-expanded', String(open));
         document.body.style.overflow = open ? 'hidden' : '';
-      });
+        if (window.lenis) open ? window.lenis.stop() : window.lenis.start();
+      };
+
+      toggle.addEventListener('click', () => setMenu(!isOpen()));
 
       /* Close mobile menu on link click */
       navList.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          toggle.classList.remove('open');
-          navList.classList.remove('open');
-          toggle.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
-        });
+        link.addEventListener('click', () => setMenu(false));
       });
 
-      /* Close on outside click */
+      /* Close on outside click or Escape */
       document.addEventListener('click', e => {
-        if (navList.classList.contains('open') &&
-            !navList.contains(e.target) &&
-            !toggle.contains(e.target)) {
-          toggle.classList.remove('open');
-          navList.classList.remove('open');
-          toggle.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
-        }
+        if (isOpen() && !navList.contains(e.target) && !toggle.contains(e.target)) setMenu(false);
+      });
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && isOpen()) { setMenu(false); toggle.focus(); }
       });
     }
 
     /* ── Smooth anchor scroll — Lenis if available, native fallback ── */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', e => {
-        const href   = anchor.getAttribute('href');
-        const target = document.querySelector(href);
+        const target = document.querySelector(anchor.getAttribute('href'));
         if (!target) return;
         e.preventDefault();
 
-        if (window.lenis) {
+        if (window.lenis && !reduced) {
           window.lenis.scrollTo(target, {
             offset:   0,
             duration: 1.2,
             easing:   (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
           });
         } else {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
         }
       });
     });
