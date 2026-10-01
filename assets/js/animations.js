@@ -10,6 +10,12 @@
 
     gsap.registerPlugin(ScrollTrigger, TextPlugin, MotionPathPlugin);
 
+    /* Years of experience, counted from the first full-time role */
+    document.querySelectorAll('.stat-number[data-since]').forEach(el => {
+      const months = (Date.now() - new Date(el.dataset.since)) / (365.25 * 864e5 / 12);
+      el.dataset.target = Math.max(1, Math.round(months / 12));
+    });
+
     /* ====================================================
        LENIS — smooth scroll, driven by GSAP ticker
        ==================================================== */
@@ -86,16 +92,12 @@
       }
 
       /* Typewriter subtitle */
-      if (!reduced) {
-        tl.to('#hero-typewriter', {
-          duration: 2.8,
-          text: { value: 'Transport Planner · Data Analyst · GIS Enthusiast · EV Specialist', delimiter: '' },
-          ease: 'none',
-        }, '-=0.15');
-      } else {
-        document.getElementById('hero-typewriter').textContent =
-          'Transport Planner · Data Analyst · GIS Enthusiast · EV Specialist';
-      }
+      document.getElementById('hero-typewriter').textContent = '';
+      tl.to('#hero-typewriter', {
+        duration: 2.8,
+        text: { value: 'Fleet Electrification · Transit Planning · Transport Modelling · Data & GIS', delimiter: '' },
+        ease: 'none',
+      }, '-=0.15');
 
       /* CTA buttons */
       tl.from('.hero-cta a', {
@@ -124,13 +126,11 @@
       });
 
       /* Scroll-line pulse */
-      if (!reduced) {
-        gsap.to('.scroll-line', {
-          scaleY: 0, transformOrigin: 'top center',
-          duration: 1.1, repeat: -1, ease: 'power2.in',
-          onRepeat() { gsap.set('.scroll-line', { scaleY: 1 }); }
-        });
-      }
+      gsap.to('.scroll-line', {
+        scaleY: 0, transformOrigin: 'top center',
+        duration: 1.1, repeat: -1, ease: 'power2.in',
+        onRepeat() { gsap.set('.scroll-line', { scaleY: 1 }); }
+      });
     }
 
     /* ====================================================
@@ -156,14 +156,8 @@
         scrollTrigger: { trigger: '#about', start: 'top 72%' },
       });
 
-      gsap.from('#skills-radar', {
-        opacity: 0, scale: 0.6, duration: 1, ease: 'power3.out',
-        scrollTrigger: { trigger: '#about', start: 'top 72%' },
-      });
-
       /* Parallax scrub */
-      if (!reduced) {
-        gsap.to('.about-text', {
+      gsap.to('.about-text', {
           yPercent: -6, ease: 'none',
           scrollTrigger: { trigger: '#about', start: 'top bottom', end: 'bottom top', scrub: 1.5 },
         });
@@ -171,7 +165,6 @@
           yPercent: 5, ease: 'none',
           scrollTrigger: { trigger: '#about', start: 'top bottom', end: 'bottom top', scrub: 1.5 },
         });
-      }
     }
 
     /* ====================================================
@@ -188,21 +181,7 @@
         scrollTrigger: { trigger: '#skills', start: 'top 68%' },
       });
 
-      /* Fill bars animate up when section enters */
-      ScrollTrigger.create({
-        trigger: '#skills',
-        start: 'top 68%',
-        once: true,
-        onEnter() {
-          document.querySelectorAll('.hex-cell').forEach(cell => {
-            const level = cell.dataset.level || '80';
-            const fill  = cell.querySelector('.hex-fill');
-            if (fill) fill.style.height = level + '%';
-          });
-        }
-      });
-
-      /* Hover bounce */
+      /* Hover bounce (pointer devices only) */
       document.querySelectorAll('.hex-cell').forEach(cell => {
         cell.addEventListener('mouseenter', () => {
           gsap.to(cell, { scale: 1.12, duration: 0.3, ease: 'back.out(2)' });
@@ -289,19 +268,36 @@
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
           });
         } else {
-          gsap.to(window, { scrollTo: 0, duration: 0.9, ease: 'power3.inOut' });
+          window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
         }
       });
     }
 
+    /* Reduced motion: show everything in its final state, no scroll effects */
+    function initStatic() {
+      gsap.set('.hero-eyebrow', { opacity: 1 });
+      document.querySelectorAll('.stat-number').forEach(el => {
+        el.textContent = el.dataset.target;
+      });
+    }
+
     /* ── Boot sequence ── */
-    initLenis();          // ← must be first so ScrollTrigger fires through Lenis
-    initHero();
-    initAbout();
-    initSkills();
-    initContact();
-    initNav();
-    initScrollTop();
+    if (reduced) {
+      initStatic();
+      initNav();
+      initScrollTop();
+    } else {
+      initLenis();        // ← must be first so ScrollTrigger fires through Lenis
+      initHero();
+      initAbout();
+      initSkills();
+      initContact();
+      initNav();
+      initScrollTop();
+    }
+
+    const yr = document.getElementById('footer-year');
+    if (yr) yr.textContent = new Date().getFullYear();
 
     /* Refresh after all fonts/images/layout settle */
     window.addEventListener('load', () => ScrollTrigger.refresh());

@@ -321,7 +321,7 @@
   const pMat = new THREE.ShaderMaterial({
     uniforms: { uTime: { value: 0 } },
     vertexShader: `
-      attribute float aSize;  attribute float aOffset;  attribute vec3 color;
+      attribute float aSize;  attribute float aOffset;
       varying vec3 vColor;    varying float vAlpha;     uniform float uTime;
       void main() {
         vColor = color;
