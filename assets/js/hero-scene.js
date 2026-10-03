@@ -140,6 +140,7 @@
   if (lite) { routeConfigs[0].vehicles.pop(); routeConfigs[1].vehicles.pop(); routeConfigs[3].vehicles.pop(); }
 
   const DWELL_T = 0.014;   // half-width (in route t) of the dwell window at each stop
+  const CHARGE_DWELL = 2;  // charging stops (chargers, truck depots) dwell this many times longer
 
   const routes = routeConfigs.map(cfg => {
     const curve = new THREE.CatmullRomCurve3(cfg.points.map(([x, z]) => new THREE.Vector3(x * X_SCALE, Y, z * Z_SCALE)), false, 'catmullrom', 0.5);
@@ -161,7 +162,7 @@
     for (let i = 0; i <= N; i++) {
       const t = i / N;
       let nearest = 1;
-      dwellPoints.forEach(s => { nearest = Math.min(nearest, Math.abs(t - s.t)); });
+      dwellPoints.forEach(s => { nearest = Math.min(nearest, Math.abs(t - s.t) / (s.charge ? CHARGE_DWELL : 1)); });
       cost[i] = 1 / (0.06 + 0.94 * smooth(nearest / (DWELL_T * 2.2)));
       cum[i]  = i ? cum[i - 1] + (cost[i] + cost[i - 1]) / 2 : 0;
     }
@@ -180,7 +181,7 @@
     const stops = dwellPoints.map(d => ({
       t: d.t, charge: d.charge, chargerOnly: d.chargerOnly,
       pos: curve.getPoint(d.t), tangent: curve.getTangent(d.t),
-      uIn: tToU(d.t - DWELL_T), uOut: tToU(d.t + DWELL_T),
+      uIn: tToU(d.t - DWELL_T * (d.charge ? CHARGE_DWELL : 1)), uOut: tToU(d.t + DWELL_T * (d.charge ? CHARGE_DWELL : 1)),
     }));
 
     return { cfg, curve, mesh, indexCount: geom.index.count, uToT, stops };

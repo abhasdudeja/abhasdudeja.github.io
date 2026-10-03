@@ -255,8 +255,8 @@
 
     ScrollTrigger.batch('.project-card', {
       onEnter: batch => gsap.from(batch, {
-        opacity: 0, y: 55, duration: 0.65,
-        stagger: 0.09, ease: 'power3.out',
+        opacity: 0, duration: 0.45,
+        stagger: 0.05, ease: 'power2.out',
       }),
       start: 'top 82%',
     });

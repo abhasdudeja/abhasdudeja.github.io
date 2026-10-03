@@ -122,14 +122,6 @@
         opacity: 0, y: 24, scale: 0.9, duration: 0.5, stagger: 0.1, ease: 'back.out(1.5)',
       }, TEXT_AT + 1.6);
 
-      document.querySelectorAll('.stat-number').forEach((el, i) => {
-        tl.to(el, {
-          textContent: parseInt(el.dataset.target, 10),
-          duration: 1.8, ease: 'power2.out', snap: { textContent: 1 },
-          onUpdate() { el.textContent = Math.round(parseFloat(el.textContent)).toLocaleString('en-IN'); },
-        }, TEXT_AT + 1.8 + i * 0.1);
-      });
-
       tl.from('.scroll-indicator', { opacity: 0, y: 10, duration: 0.8 }, TEXT_AT + 2.4);
 
       /* If animation frames are frozen (hidden tab, embedded preview, throttled browser),
@@ -137,11 +129,11 @@
       setTimeout(() => { if (gsap.ticker.time < 0.5) tl.progress(1); }, 2500);
 
       /* ── 6. Scroll journey: the hero pins and scrolling drives the fleet (hero-scene.js).
-            Progress 0 → 1 over ~2.6 screens; text stays while the fleet runs, then lifts
+            Progress 0 → 1 over ~6 screens; text stays while the fleet runs, then lifts
             away in layers as the camera pulls back to reveal the whole network. ── */
       const journeyFill   = document.getElementById('journey-fill');
       const journeyStops  = document.querySelectorAll('.hero-journey li');
-      const PIN_DISTANCE  = scene ? '+=260%' : '+=0%';
+      const PIN_DISTANCE  = scene ? '+=600%' : '+=0%';
 
       const out = gsap.timeline({
         scrollTrigger: {
@@ -155,6 +147,18 @@
             journeyStops.forEach(li => li.classList.toggle('active', p >= parseFloat(li.dataset.at)));
           },
         },
+      });
+      /* Hero stats count up with scroll progress (scrubbed, so they run back down in reverse).
+         Without the pinned scene there is no scroll journey, so show the final values. */
+      document.querySelectorAll('.stat-number').forEach((el, i) => {
+        const target = parseInt(el.dataset.target, 10);
+        const fmt    = n => Math.round(n).toLocaleString('en-IN');
+        if (!scene) { el.textContent = fmt(target); return; }
+        const val = { n: 0 };
+        out.to(val, {
+          n: target, ease: 'none', duration: 0.5,
+          onUpdate() { el.textContent = fmt(val.n); },
+        }, 0.02 + i * 0.03);
       });
       window.heroJourney = out;   // handy for debugging: heroJourney.progress(0.5)
       out
@@ -211,25 +215,11 @@
         scrollTrigger: aboutST,
       });
 
-      gsap.from('.about-tags .tag', {
-        opacity: 0, scale: 0.7, duration: 0.4, stagger: 0.06, ease: 'back.out(2)',
-        scrollTrigger: { trigger: '#about', start: 'top 68%' },
-      });
-
       gsap.from('#profile-img', {
         opacity: 0, scale: 0.8, rotation: -8, duration: 1.1, ease: 'elastic.out(1, 0.55)',
         scrollTrigger: { trigger: '#about', start: 'top 72%' },
       });
 
-      /* Parallax scrub */
-      gsap.to('.about-text', {
-          yPercent: -6, ease: 'none',
-          scrollTrigger: { trigger: '#about', start: 'top bottom', end: 'bottom top', scrub: 1.5 },
-        });
-        gsap.to('.about-visual', {
-          yPercent: 5, ease: 'none',
-          scrollTrigger: { trigger: '#about', start: 'top bottom', end: 'bottom top', scrub: 1.5 },
-        });
     }
 
     /* ====================================================
@@ -262,16 +252,6 @@
        ==================================================== */
     function initContact() {
       revealHeading(document.getElementById('contact'));
-
-      gsap.from('.contact-map-wrap', {
-        opacity: 0, x: -45, duration: 0.8, ease: 'power3.out',
-        scrollTrigger: { trigger: '#contact', start: 'top 70%' },
-      });
-
-      gsap.from('.contact-card', {
-        opacity: 0, x: 45, duration: 0.6, stagger: 0.11, ease: 'power3.out',
-        scrollTrigger: { trigger: '#contact', start: 'top 68%' },
-      });
 
       /* Hover lift */
       document.querySelectorAll('.contact-card').forEach(card => {

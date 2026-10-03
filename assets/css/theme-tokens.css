@@ -27,7 +27,7 @@
   --font-mono:       'JetBrains Mono', 'Fira Code', monospace;
 
   /* === Spacing === */
-  --section-pad:     clamp(80px, 10vw, 140px);
+  --section-pad:     clamp(20px, 2.5vw, 36px);
   --container-max:   1200px;
 
   /* === Transitions === */

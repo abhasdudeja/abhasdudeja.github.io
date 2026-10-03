@@ -77,12 +77,13 @@
         if (year) {
           const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
           label.setAttribute('x',           p.x);
-          label.setAttribute('y',           isAbove ? p.y - 12 : p.y + 20);
+          label.setAttribute('y',           isAbove ? p.y - 14 : p.y + 26);
           label.setAttribute('text-anchor', 'middle');
           label.setAttribute('fill',        '#00d4ff');
-          label.setAttribute('font-size',   '9.5');
+          label.setAttribute('font-size',   '15');
+          label.setAttribute('font-weight', '600');
           label.setAttribute('font-family', 'JetBrains Mono, monospace');
-          label.setAttribute('opacity',     '0.85');
+          label.setAttribute('opacity',     '1');
           label.textContent = year;
           label.classList.add('route-year-label');
           routeSvg.appendChild(label);
